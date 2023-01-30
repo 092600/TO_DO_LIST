@@ -1,0 +1,204 @@
+* {
+    margin : 0px auto;
+}
+
+
+body {
+    width : 587px;
+    min-width: 587px;
+    max-width: 587px;
+
+    height: 648px;
+}
+
+
+
+
+.mainDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border : 3px solid black;
+    margin-top: 30px;
+}
+
+.todolistOutterDiv {
+    width : 587px;
+    min-width: 587px;
+    height: 648px;
+    min-height: 648px;
+}
+
+
+
+.todolistHeaderDiv {
+    width : 100%;
+    height : 20%;
+
+    display: inline-block;
+}
+
+.headerTitleDiv {
+    width : 100%;
+    height: 40%;
+
+    font-size: 34px;
+
+    text-align: center;
+
+    border-bottom: 3px solid black;
+}
+
+
+.headerFunctionalDiv {
+    width : 100%;
+    height: 60%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 3px solid black;
+}
+
+.searchTodolistDiv {
+    width : 65%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-right: 3px solid black;
+}
+
+.searchTodolistDiv > * {
+    margin:0px;
+}
+
+#todoDatetime {
+    width : 63%;
+    height: 34px;;
+    font-size : 14px;
+}
+
+.addTodolistDiv {
+    width: 35%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.addTodolistDiv > * {
+    margin:0px;
+}
+
+#todolistSearchButton {
+    width : 68px;
+    height: 38px;;
+    font-size : 14px;
+}
+
+
+#todolistAddButton {
+    width : 150px;
+    height: 38px;;
+    font-size : 14px;
+}
+
+.clearButton {
+    width : 68px;
+    height: 38px;;
+    font-size : 14px;
+}
+
+
+
+
+
+.todolistContentDiv {
+    width : 100%;
+    height : 70%;
+
+    border-bottom: 3px solid black;
+}
+
+.fstTodolistDiv {
+    border-bottom: 1px solid black;
+    font-size : 20px;
+}
+
+.etcTodolistDiv {
+    font-size : 16px;
+}
+
+.todolistDiv {
+    width : 100%;
+    height : 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.todolistDiv div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.datetime {
+    width : 20%;
+    height : 100%;
+}
+
+.category {
+    width : 12%;
+    height : 100%;
+}
+
+.content {
+    width : 38%;
+    height : 100%;
+}
+
+.complete {
+    width : 16%;
+    height : 100%;
+
+    font-size : 18px;
+}
+
+.delete {
+    width : 14%;
+    height : 100%;
+}
+
+.todolistFooterDiv {
+    width : 100%;
+    height : 10%;
+}
+
+.fa-trash:hover {
+    color : rgb(235, 52, 52);
+}
+
+.notCompleteITag {
+    color : black;
+}
+
+.notCompleteITag:hover {
+    color : green;
+}
+
+.completeITag {
+    color : green;
+}
+
+.completeITag:hover {
+    color : black;
+}

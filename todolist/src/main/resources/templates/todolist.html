@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script th:src="@{/js/todolist.js}"></script>
+
+    <!--  jquery 사용 스크립트  -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!--  font awesome 사용 스크립트  -->
+    <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/todolist.css}" >
+
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="todolistOutterDiv">
+            <div class="todolistHeaderDiv">
+                <div class="headerTitleDiv">
+                    <p class="todolistTitleP">My To Do List</p>
+                </div>
+                <div class="headerFunctionalDiv">
+                    <div class="searchTodolistDiv">
+                        <input id="todoDatetime" type="date" th:value="${searchDatetime}">
+                        <button id="todolistSearchButton" onclick="searchTodolists()">search</button>
+                        <a href="/"><button class="clearButton">모두보기</button></a>
+                    </div>
+                    <div class="createTodolistDiv">
+                        <button id="todolistAddButton" onclick="createTodoList()">To Do List 추가하기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="todolistContentDiv">
+                <div class="todolistDiv fstTodolistDiv" >
+                    <div class="datetime">
+                        <p>날짜</p>
+                    </div>
+                    <div class="category">
+                        <p>카테고리</p>
+                    </div>
+                    <div class="content">
+                        <p>내용</p>
+                    </div>
+                    <div class="complete">
+                        <p>성공여부</p>
+                    </div>
+                    <div class="delete">
+                        <p>삭제</p>
+                    </div>
+                </div>
+                <div th:each="todo : ${todolist}" class="todolistDiv etcTodolistDiv" >
+
+                    <div class="datetime">
+                        <p th:text="${todo.createdDate}"></p>
+                    </div>
+                    <div class="category">
+                        <p th:text="${todo.category}"></p>
+                    </div>
+                    <div class="content">
+                        <p th:text="${todo.content}"></p>
+                    </div>
+                    <div class="complete">
+                        <p th:if="${todo.completed == false}"><i class="fa-solid fa-square-check notCompleteITag"
+                            th:idx="${todo.idx}"
+
+                            th:onclick="completeTodolist(this.getAttribute('idx'))"></i></p>
+                        <p th:if="${todo.completed == true}"><i class="fa-solid fa-square-check completeITag"
+                            th:idx="${todo.idx}"
+
+                            th:onclick="notCompleteTodolist(this.getAttribute('idx'))" ></i></p>
+                    </div>
+                    <div class="delete">
+                        <p><i class="fa-solid fa-trash"
+                            th:idx="${todo.idx}"
+                            th:onclick="deleteTodolist(this.getAttribute('idx'))"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="todolistFooterDiv"></div>
+        </div>
+    </div>
+</body>
+</html>

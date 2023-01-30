@@ -1,13 +1,14 @@
 package com.example.todolist.controller;
 
+import java.util.List;
+
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.todolist.domain.todo.Todo;
 import com.example.todolist.domain.todo.TodoService;
@@ -22,25 +23,33 @@ public class TodoListController {
     private TodoService todoService;
 
     @GetMapping(value = "/")
-    public String getToDoList(Model model){
-        model.addAttribute("todoList", todoService.findAll());
+    public String getTodoList(Model model){
+        model.addAttribute("todolist", todoService.findAll());
+        System.out.println(todoService.findAll().size());
 
-        return "test";
-    }
-
-    @PostMapping(value = "/todo")
-    public String addToDoList(@RequestBody Todo todo){
-        todoService.save(todo);
-        
-        return "test";
+        return "todolist";
     }
 
     @DeleteMapping(value = "/todo/{idx}")
-    public String delToDo(@PathParam("idx") Long idx){
+    public String delTodo(@PathParam("idx") Long idx){
         todoService.delete(idx);
 
-        return "test";
+        return "redirect:/";
     }
 
+    @GetMapping(value = "/todo/add")
+    public String addTodoListPage() {
+        return "createTodoListPage";
+    }
+
+    @GetMapping(value = "/todo/search/{searchDatetime}")
+    public String searchTodos(@PathVariable("searchDatetime") String searchDatetime,
+                                Model model){
+        model.addAttribute("todolist", todoService.findAllByCreatedDate(searchDatetime));
+        model.addAttribute("searchDatetime", searchDatetime);
+
+        return "todolist";
+
+    }
 
 }

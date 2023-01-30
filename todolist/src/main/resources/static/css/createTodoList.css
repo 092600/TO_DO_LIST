@@ -1,0 +1,53 @@
+.createTodoListDiv {
+    width : 550px;
+    height: 250px;
+}
+
+
+.leftDiv {
+    width : 15%;
+}
+
+.rightDiv {
+    width : 85%;
+}
+
+.categoryDiv {
+    width : 100%;
+    height: 60px;   
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+select {
+    width: 94%;
+    height: 45px;
+}
+
+
+.contentDiv {
+    width : 100%;
+    height: 60px;   
+    
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+input {
+    width: 92%;
+    height: 45px;
+}
+
+.addButtonDiv {
+    width : 100%;
+    height: 110px;   
+    
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+button {
+    width: 95%;
+    height: 50px;
+}
