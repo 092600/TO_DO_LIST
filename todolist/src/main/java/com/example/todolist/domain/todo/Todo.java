@@ -40,10 +40,5 @@ public class Todo {
     @Column
     private Boolean completed = false;
 
-
-    public Todo (TodoCategory category, String content) {
-        this.category = category;
-        this.content = content;
-    }
 }
 

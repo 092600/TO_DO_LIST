@@ -31,7 +31,7 @@ public class TodoListController {
     }
 
     @DeleteMapping(value = "/todo/{idx}")
-    public String delTodo(@PathParam("idx") Long idx){
+    public String delTodo(@PathVariable("idx") Long idx){
         todoService.delete(idx);
 
         return "redirect:/";

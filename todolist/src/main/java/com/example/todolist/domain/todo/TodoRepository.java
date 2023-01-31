@@ -19,6 +19,6 @@ public interface TodoRepository extends JpaRepository<Todo, Long>{
     @Query("UPDATE todo t set t.category = ?1, t.content = ?2 WHERE t.idx = ?3")
     void updateTodoCategorytAndContent(TodoCategory category, String content, Long idx);
 
-    Todo findByIdx(Long idx);
+    // Todo findByIdx(Long idx);
     List<Todo> findAllByCreatedDate(String createdDate);
 }

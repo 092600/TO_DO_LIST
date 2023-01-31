@@ -1,9 +1,11 @@
 package com.example.todolist.domain.todo;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.aspectj.weaver.ast.Instanceof;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,19 +29,19 @@ public class TodoService {
     }
     
 
-    public void update(Todo todo) {
-        todoRepository.updateTodoCategorytAndContent(todo.getCategory(), todo.getContent(), todo.getIdx());
-    }
-
     public void delete(Long idx) {
-        Todo todo = findByIdx(idx);
-        todoRepository.delete(todo);
+        Optional<Todo> todo = todoRepository.findById(idx);
+
+        if (todo.isPresent()) {
+            todoRepository.deleteById(idx);
+        }
+    
     }
 
 
 
-    public Todo findByIdx(Long idx) {
-        return todoRepository.findByIdx(idx);
+    public Optional<Todo> findByIdx(Long idx) {
+        return todoRepository.findById(idx);
     }
     
     public List<Todo> findAll() {
