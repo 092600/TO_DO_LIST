@@ -1,8 +1,5 @@
 package com.example.todolist.controller;
 
-import java.util.List;
-
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +7,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.todolist.domain.todo.Todo;
 import com.example.todolist.domain.todo.TodoService;
 
 
@@ -25,7 +21,6 @@ public class TodoListController {
     @GetMapping(value = "/")
     public String getTodoList(Model model){
         model.addAttribute("todolist", todoService.findAll());
-        System.out.println(todoService.findAll().size());
 
         return "todolist";
     }

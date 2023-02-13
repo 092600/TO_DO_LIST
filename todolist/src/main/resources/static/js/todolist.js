@@ -2,7 +2,7 @@ function createTodoList() {
     var url = "/todo/add";
     var name = "To Do List 추가하기";
 
-    var option = "width = 550, height = 250, top = 100, left = 200, location = no"
+    var option = "width = 550, height = 250, top = 160, left = 300, location = no"
 
     window.open(url, name, option);
 }
